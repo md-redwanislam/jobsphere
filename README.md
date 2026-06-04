@@ -99,7 +99,7 @@ A full-stack MERN-based job portal that connects applicants, recruiters and admi
 
 # Clone the repository
 
-git clone https://github.com/GoodBoy-420/jobsphere
+git clone https://github.com/md-redwanislam/jobsphere
 
 # Install frontend dependencies
 
