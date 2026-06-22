@@ -1,4 +1,4 @@
-import { setLoading, setUser } from "@/redux/authSlice";
+import { setLoading, setToken, setUser } from "@/redux/authSlice";
 import { USER_API_END_POINT } from "@/utils/constant";
 import { Label } from "@radix-ui/react-label";
 import { RadioGroup } from "@radix-ui/react-radio-group";
@@ -40,6 +40,7 @@ const Login = () => {
       });
       if (res.data.success) {
         dispatch(setUser(res.data.user));
+        dispatch(setToken(res.data.token));
         navigate("/");
         toast.success(res.data.message);
       }

@@ -111,7 +111,7 @@ export const loginService = async (req) => {
     return {
       statusCode: 200,
       setCookie: tokenCookie,
-      body: { message: `Welcome back  ${user.fullname}`, user, success: true },
+      body: { message: `Welcome back  ${user.fullname}`, user, token, success: true },
     };
   } catch (error) {
     return {

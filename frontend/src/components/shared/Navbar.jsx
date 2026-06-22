@@ -1,4 +1,4 @@
-import { setUser } from "@/redux/authSlice";
+import { setToken, setUser } from "@/redux/authSlice";
 import { USER_API_END_POINT } from "@/utils/constant";
 import axios from "axios";
 import { LogOut, Menu, User2, X } from "lucide-react";
@@ -24,6 +24,7 @@ const Navbar = () => {
       });
       if (res.data.success) {
         dispatch(setUser(null));
+        dispatch(setToken(null));
         navigate("/");
         toast.success(res.data.message);
       }
