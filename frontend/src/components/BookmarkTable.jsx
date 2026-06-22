@@ -165,9 +165,9 @@ const BookmarkTable = () => {
 
   return (
     <div className="space-y-4">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <h2 className="text-lg font-semibold">Filter by Category:</h2>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <h2 className="text-lg font-semibold whitespace-nowrap">Filter by Category:</h2>
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select a category" />
@@ -212,6 +212,7 @@ const BookmarkTable = () => {
         </Dialog>
       </div>
       
+      <div className="overflow-x-auto">
       <Table>
         <TableCaption>A list of your bookmarked jobs</TableCaption>
         <TableHeader>
@@ -287,6 +288,7 @@ const BookmarkTable = () => {
           )}
         </TableBody>
       </Table>
+      </div>
     </div>
   );
 };

@@ -145,8 +145,8 @@ const EditJob = () => {
     return (
       <div>
         <Navbar />
-        <div className="flex items-center justify-center w-screen my-5">
-          <div className="p-8 max-w-4xl border border-gray-200 shadow-lg rounded-md flex justify-center items-center">
+        <div className="flex items-center justify-center my-5 px-4">
+          <div className="p-4 sm:p-8 w-full max-w-4xl border border-gray-200 shadow-lg rounded-md flex justify-center items-center">
             <Loader2 className="h-8 w-8 animate-spin mr-2" /> Loading job details...
           </div>
         </div>
@@ -157,12 +157,12 @@ const EditJob = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex items-center justify-center w-screen my-5">
+      <div className="flex items-center justify-center my-5 px-4">
         <form
           onSubmit={submitHandler}
-          className="p-8 max-w-4xl border border-gray-200 shadow-lg rounded-md"
+          className="p-4 sm:p-8 w-full max-w-4xl border border-gray-200 shadow-lg rounded-md"
         >
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
             <h1 className="text-2xl font-bold">Edit Job</h1>
             <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
               <DialogTrigger asChild>
@@ -190,7 +190,7 @@ const EditJob = () => {
             </Dialog>
           </div>
           
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
               <Label>Title</Label>
               <Input
@@ -299,7 +299,7 @@ const EditJob = () => {
             </div>
           </div>
           
-          <div className="flex justify-between mt-6 gap-4">
+          <div className="flex flex-col sm:flex-row justify-between mt-6 gap-4">
             <Button
               type="button"
               variant="outline"

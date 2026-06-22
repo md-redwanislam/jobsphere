@@ -52,10 +52,10 @@ const AdminDashboard = () => {
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-          <div className="flex items-center gap-4">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+          <div className="flex items-center gap-2 sm:gap-4">
             <AdminNotifications />
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-gray-600 hidden sm:inline">
               Welcome, {admin?.name || "Admin"}
             </span>
             <Button
@@ -75,18 +75,21 @@ const AdminDashboard = () => {
       {/* Main content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Tabs defaultValue="users" className="w-full">
-          <TabsList className="mb-8">
-            <TabsTrigger value="users" className="flex items-center gap-2">
+          <TabsList className="mb-8 flex flex-wrap">
+            <TabsTrigger value="users" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
               <Users size={16} />
-              User Management
+              <span className="hidden sm:inline">User Management</span>
+              <span className="sm:hidden">Users</span>
             </TabsTrigger>
-            <TabsTrigger value="jobs" className="flex items-center gap-2">
+            <TabsTrigger value="jobs" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
               <Briefcase size={16} />
-              Job Management
+              <span className="hidden sm:inline">Job Management</span>
+              <span className="sm:hidden">Jobs</span>
             </TabsTrigger>
-            <TabsTrigger value="companies" className="flex items-center gap-2">
+            <TabsTrigger value="companies" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
               <Building2 size={16} />
-              Company Management
+              <span className="hidden sm:inline">Company Management</span>
+              <span className="sm:hidden">Companies</span>
             </TabsTrigger>
           </TabsList>
           

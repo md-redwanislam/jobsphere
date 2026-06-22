@@ -136,7 +136,7 @@ const JobDescription = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto my-10">
+    <div className="max-w-7xl mx-auto my-10 px-4">
       <Button
         variant="ghost"
         className="mb-4 flex items-center gap-1 text-gray-600 hover:text-gray-900"
@@ -145,10 +145,10 @@ const JobDescription = () => {
         <ArrowLeft size={16} />
         Back to Jobs
       </Button>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="font-bold text-xl">{singleJob?.title}</h1>
-          <div className="flex items-center gap-2 mt-4">
+          <div className="flex flex-wrap items-center gap-2 mt-4">
             <Badge className={"text-blue-700 font-bold"} variant="ghost">
               {singleJob?.postion} Positions
             </Badge>

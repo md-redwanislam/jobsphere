@@ -33,7 +33,7 @@ const AdminJobsTable = () => {
     setFilterJobs(filteredJobs);
   }, [allAdminJobs, searchJobByText]);
   return (
-    <div>
+    <div className="overflow-x-auto">
       <Table>
         <TableCaption>A list of your recent posted jobs</TableCaption>
         <TableHeader>
@@ -76,7 +76,7 @@ const AdminJobsTable = () => {
                       onClick={async () => {
                         if (window.confirm('Are you sure you want to delete this job?')) {
                           try {
-                            const response = await fetch(`${import.meta.env.VITE_API_URL}/job/delete/${job._id}`, {
+                            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/job/delete/${job._id}`, {
                               method: 'DELETE',
                               headers: {
                                 Authorization: `Bearer ${localStorage.getItem('token')}`,

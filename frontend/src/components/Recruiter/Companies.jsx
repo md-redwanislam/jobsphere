@@ -25,8 +25,8 @@ const Companies = () => {
   return (
     <div>
       <Navbar />
-      <div className="max-w-6xl mx-auto my-10">
-        <div className="flex items-center justify-between my-5">
+      <div className="max-w-6xl mx-auto my-10 px-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 my-5">
           <Input
             className="w-fit"
             placeholder="Filter by name"

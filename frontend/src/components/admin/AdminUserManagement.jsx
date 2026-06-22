@@ -142,7 +142,7 @@ const AdminUserManagement = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
         <h2 className="text-xl font-semibold">User Management</h2>
         <Button
           variant="outline"
@@ -159,6 +159,7 @@ const AdminUserManagement = () => {
           <Loader2 className="h-8 w-8 animate-spin text-[#7209b7]" />
         </div>
       ) : (
+        <div className="overflow-x-auto">
         <Table>
           <TableCaption>List of all users in the system</TableCaption>
           <TableHeader>
@@ -209,6 +210,7 @@ const AdminUserManagement = () => {
             )}
           </TableBody>
         </Table>
+        </div>
       )}
 
       {/* Update User Dialog */}

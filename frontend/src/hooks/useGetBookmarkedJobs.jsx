@@ -10,9 +10,12 @@ const useGetBookmarkedJobs = () => {
   useEffect(() => {
     const fetchBookmarkedJobs = async () => {
       try {
-        const res = await axios.get(`${USER_API_END_POINT}/bookmarks`, {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          `${USER_API_END_POINT}/bookmarks`,
+          {
+            withCredentials: true,
+          },
+        );
 
         if (res.data.success) {
           // Initialize with an empty array if bookmarks is undefined
