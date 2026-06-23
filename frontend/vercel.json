@@ -3,6 +3,10 @@
     {
       "source": "/api/(.*)",
       "destination": "https://jobportal-api-opal.vercel.app/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
