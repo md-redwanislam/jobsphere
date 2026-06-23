@@ -12,12 +12,18 @@ import { PersistGate } from "redux-persist/integration/react";
 const persistor = persistStore(store);
 
 axios.interceptors.request.use((config) => {
-  const token = store.getState().auth.token;
+  const { token } = store.getState().auth;
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
+
+// Clear stale sessions where user exists but token is missing (pre-token-migration)
+const { user, token } = store.getState().auth;
+if (user && !token) {
+  store.dispatch({ type: "auth/clearUser" });
+}
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

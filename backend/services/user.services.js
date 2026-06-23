@@ -1,8 +1,8 @@
-import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import getDataUri from "../utils/dataUri.js";
+import { User } from "../models/user.model.js";
 import cloudinary from "../utils/cloudinary.js";
+import getDataUri from "../utils/dataUri.js";
 
 export const registerService = async (req) => {
   try {
@@ -92,10 +92,10 @@ export const loginService = async (req) => {
     const tokenCookie = {
       token,
       options: {
-        maxAge: 1 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        sameSite: "none",
-        secure: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
       },
     };
 
@@ -111,7 +111,12 @@ export const loginService = async (req) => {
     return {
       statusCode: 200,
       setCookie: tokenCookie,
-      body: { message: `Welcome back  ${user.fullname}`, user, token, success: true },
+      body: {
+        message: `Welcome back  ${user.fullname}`,
+        user,
+        token,
+        success: true,
+      },
     };
   } catch (error) {
     return {

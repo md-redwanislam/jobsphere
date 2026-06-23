@@ -29,7 +29,11 @@ export const logout = async (req, res) => {
   const result = await logoutService();
   return res
     .status(result.statusCode)
-    .cookie("token", "", { maxAge: 0 })
+    .clearCookie("refreshToken", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    })
     .json(result.body);
 };
 
